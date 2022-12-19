@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserBonus extends Model
 {
@@ -10,4 +11,6 @@ class UserBonus extends Model
     protected $table = 'user_bonuses';
     protected $primaryKey = 'id';
     protected $dateFormat = 'Y-m-d H:i:sO';
+
+    use SoftDeletes;
 }

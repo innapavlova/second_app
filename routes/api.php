@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['api']], function () {
     Route::post('/user_page', [UserPageController::class, 'table']);
+    Route::post('/softDeleteUserBonuses/', [UserPageController::class, 'softDeleteUserBonuses']);
 });

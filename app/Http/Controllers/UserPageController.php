@@ -20,7 +20,7 @@ class UserPageController extends Controller
             } else {
                 $date = Carbon::createFromFormat('Y-m-d H:i:s', $userLastBonus['created_at']);
                 $nextBonusDate = $date->addDay();
-                $currentDate = Carbon::now();
+                $currentDate = Carbon::createFromFormat('Y-m-d H:i:s', Carbon::now());
                 $addBonus = $currentDate->gt($nextBonusDate);
             }
 
@@ -51,5 +51,10 @@ class UserPageController extends Controller
         $redirectToLoginLink = rtrim($link,"/")."/login";
         Http::get($redirectLink);
         return Redirect::to($redirectToLoginLink);
+    }
+
+    public function softDeleteUserBonuses(Request $request) {
+        $id = $request->get('id');
+        UserBonus::find($id)->delete();
     }
 }
