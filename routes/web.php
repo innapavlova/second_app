@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->away('http://127.0.0.1:8000/');
+    return redirect()->away(env('REDIRECT_APP', "http://127.0.0.1:8000/"));
 });
-//Route::get('/', ['as' => 'checkLogin', 'uses' => 'App\Http\Controllers\UserPageController@checkLogin']);
 Route::get('/logout', ['as' => 'logout', 'uses' => 'App\Http\Controllers\UserPageController@logout']);

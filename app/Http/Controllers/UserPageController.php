@@ -52,19 +52,4 @@ class UserPageController extends Controller
         Http::get($redirectLink);
         return Redirect::to($redirectToLoginLink);
     }
-
-    public function checkLogin() {
-        return "GO AWAY";
-//        $link = env('REDIRECT_APP', "http://127.0.0.1:8000/");
-//        $redirectLink = rtrim($link,"/")."/api/checkLogin";
-//        return Http::get($redirectLink);
-    }
-
-    public function getUserBonuses($id) {
-
-    }
-
-    public function softDeleteUserBonuses($id) {
-
-    }
 }
